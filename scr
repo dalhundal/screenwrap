@@ -1,0 +1,32 @@
+#!/bin/bash
+
+IDPREFIX=screenwrap::
+SLEEPTIME=0.75
+
+if [ $# -eq 1 ]
+then
+   SCREENNAME=$IDPREFIX$1::
+   FOUNDSCREENS=`screen -ls $SCREENNAME | grep $SCREENNAME | wc -l`
+   if [ $FOUNDSCREENS -eq 0 ]
+   then  
+      echo "- Found no screen named ($1), starting a new screen..."
+      sleep $SLEEPTIME
+      screen -S $SCREENNAME
+   else
+      echo "- Found a screen named ($1), reattaching... "
+      sleep $SLEEPTIME
+      screen -r $SCREENNAME
+   fi
+else
+   NUMSCREENS=`screen -ls screenwrap:: | grep screenwrap:: | wc -l`
+   if [ $NUMSCREENS -eq 0 ]
+   then
+      echo "- There are no screens running"
+   else
+      echo "Found $NUMSCREENS screens"
+      echo "---------------"
+      screen -ls $IDPREFIX | grep $IDPREFIX | awk '{print $1}' | awk -F\:: '{print $2}'
+      echo ""
+   fi
+fi
+
