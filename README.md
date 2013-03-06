@@ -7,7 +7,7 @@ A simple wrapper for *[screen][1]*, providing quick and convenient access to nam
 Installation
 ---
 
-Just copy *scr* to somewhere in your path.
+Just copy *scr* to somewhere in your path, and make sure it's executable.
 
 
 Usage
