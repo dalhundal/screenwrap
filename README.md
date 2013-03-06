@@ -3,14 +3,12 @@ Screenwrap
 
 A simple wrapper for *[screen][1]*, providing quick and convenient access to named screens.
 
----
 
 Installation
 ---
 
 Just copy *scr* to somewhere in your path.
 
----
 
 Usage
 ---
@@ -23,7 +21,6 @@ Attaches to a screen named 'myScreen', if it doesn't exist, creates it first:
 
     scr myScreen
 
----
 
 Example output
 ---
